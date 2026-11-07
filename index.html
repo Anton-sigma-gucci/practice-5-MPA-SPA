@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>TechStore — Electronics Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="#/home">Tech<span>Store</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#/home" data-route="home">Home</a>
+        <a href="#/catalog" data-route="catalog">Catalog</a>
+        <a href="#/about" data-route="about">About</a>
+        <a href="#/contact" data-route="contact">Contact</a>
+      </nav>
+      <label class="search">
+        <span aria-hidden="true">🔍</span>
+        <input id="search-input" type="search" placeholder="Search products" aria-label="Search products by name" autocomplete="off">
+      </label>
+      <div class="fav-indicator" title="Favorites">
+        <span aria-hidden="true">♥</span>
+        <span class="sr-only">Favorites:</span>
+        <b id="fav-count">0</b>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="page-home" class="page" data-page="home">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Technology for your lifestyle</h1>
+          <p>Laptops, smartphones, headphones and accessories from brands you trust, picked for everyday work, play and travel.</p>
+          <button type="button" class="btn" id="explore-btn">Explore Catalog</button>
+        </div>
+        <div class="hero-img">
+          <img data-fallback src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=75" alt="Modern silver laptop on a desk">
+        </div>
+      </div>
+
+      <h2 class="section-title">Popular Products</h2>
+      <div class="grid grid-popular" id="popular-grid"></div>
+
+      <h2 class="section-title">Why TechStore</h2>
+      <div class="features">
+        <div class="feature"><span class="icon" aria-hidden="true">🚚</span><div><h3>Fast delivery</h3><p>Orders leave our warehouse within one business day.</p></div></div>
+        <div class="feature"><span class="icon" aria-hidden="true">🛡️</span><div><h3>Warranty included</h3><p>Every device comes with a 24-month warranty.</p></div></div>
+        <div class="feature"><span class="icon" aria-hidden="true">↩️</span><div><h3>Easy returns</h3><p>Change your mind within 30 days and send it back.</p></div></div>
+      </div>
+    </section>
+
+    <section id="page-catalog" class="page" data-page="catalog">
+      <h1>Explore Our Catalog</h1>
+      <div class="catalog-layout">
+        <aside class="sidebar" id="categories" aria-label="Categories">
+          <h2 class="side-title">Categories</h2>
+          <button type="button" class="cat active" data-category="All">All Products</button>
+          <button type="button" class="cat" data-category="Smartphones">Smartphones</button>
+          <button type="button" class="cat" data-category="Laptops">Laptops</button>
+          <button type="button" class="cat" data-category="Headphones">Headphones</button>
+          <button type="button" class="cat" data-category="Accessories">Accessories</button>
+        </aside>
+        <div>
+          <div class="grid" id="catalog-grid"></div>
+          <p class="empty hidden" id="empty-msg">No products found</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-about" class="page" data-page="about">
+      <h1>About TechStore</h1>
+      <p class="lead">TechStore is an online shop for everyday electronics. We select a compact range of devices, check every product ourselves and describe it honestly, so choosing the right gadget takes minutes instead of hours.</p>
+      <div class="features">
+        <div class="feature"><span class="icon" aria-hidden="true">✅</span><div><h3>Quality Products</h3><p>Only tested devices from official suppliers.</p></div></div>
+        <div class="feature"><span class="icon" aria-hidden="true">💬</span><div><h3>Customer Support</h3><p>Real people answer your questions every day.</p></div></div>
+        <div class="feature"><span class="icon" aria-hidden="true">📦</span><div><h3>Wide Selection</h3><p>Phones, laptops, audio and accessories in one place.</p></div></div>
+      </div>
+    </section>
+
+    <section id="page-contact" class="page" data-page="contact">
+      <h1>Get in Touch</h1>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Contact information</h3>
+          <p>📍 12 Market Street, Kyiv, Ukraine</p>
+          <p>✉️ support@techstore.example</p>
+          <p>📞 +380 44 123 45 67</p>
+          <p>🕘 Mon–Fri, 9:00–18:00</p>
+        </div>
+        <form id="contact-form" class="form">
+          <label>Full Name
+            <input type="text" name="name" required minlength="2" placeholder="Your name">
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required minlength="10" placeholder="How can we help?"></textarea>
+          </label>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="form-status" class="form-status hidden" role="status">Thank you! Your message has been sent.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#/home">Tech<span>Store</span></a>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#/home">Home</a>
+        <a href="#/catalog">Catalog</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
+      </nav>
+      <span class="session">Session time <b id="session-timer">00:00</b></span>
+    </div>
+    <div class="container copyright">© 2026 TechStore. All rights reserved.</div>
+  </footer>
+</body>
+</html>
